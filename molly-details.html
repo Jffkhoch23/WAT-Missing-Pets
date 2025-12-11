@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details zu Molly</title>
+    <style>
+        /* Grundlegende Stileinstellungen */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background-color: #ff6666;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .cat-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 10px 0;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .cat-card img {
+            max-width: 50%; /* Größe des Bildes auf 50% der Container-Breite verkleinern */
+            height: auto; /* Seitenverhältnis beibehalten */
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .cat-card h2 {
+            margin: 10px 0;
+        }
+
+        .cat-card p {
+            margin: 5px 0;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        a {
+            display: inline-block;
+            margin: 20px 0;
+            text-decoration: none;
+            color: #ff6666;
+            font-size: 16px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #ff6666;
+            color: white;
+            width: 100%;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #ff6666;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Details zu Molly</h1>
+    </header>
+    <div class="container">
+        <div class="cat-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWm2jTiq84Rgy5dUJsCdCqAIgBdNrq6mQNdQ&s" alt="Bild der vermissten Katze Molly">
+            <h2>Molly</h2>
+            <p><strong>Vermisst seit:</strong> 01. Juni 2024</p>
+            <p><strong>Ort:</strong> Berlin</p>
+            <p><strong>Beschreibung:</strong> Molly ist eine schwarz-weiße Katze, die sehr zutraulich ist. Sie trägt ein rotes Halsband und hat einen auffälligen weißen Fleck auf der Brust. Molly ist bekannt dafür, dass sie gerne mit Menschen schmust und besonders in den Abendstunden sehr aktiv wird. Sie hatte eine Vorliebe für kleine, weiche Kissen und schnurrte oft, wenn sie gestreichelt wurde.</p>
+            <p><strong>Weitere Details:</strong> Molly ist etwa 2 Jahre alt, gesund und gut gepflegt. Sie liebt es, sich in der Nähe von Fenstern zu entspannen und beobachtet gerne die Vögel im Garten. Ihre Besitzer vermuten, dass sie in der Gegend zwischen dem Stadtpark und der Fußgängerzone verschwunden ist. Molly wurde zuletzt gesehen, als sie in der Nähe eines kleinen Cafés in der Nähe der Altstadt unterwegs war.</p>
+            <p>Die Familie von Molly ist sehr besorgt und hofft auf Hinweise, die zur Wiedererlangung ihrer Katze führen können. Wenn Sie etwas über Molly wissen, bitte melden Sie sich umgehend.</p>
+            <p><strong>Besondere Merkmale:</strong> Das rote Halsband trägt ein kleines Namensschild mit der Aufschrift "Molly". Molly hat außerdem eine kleine Narbe am rechten Ohr, die sie sich vor einigen Monaten zugezogen hat. Sie ist besonders empfindlich gegenüber lautem Geräusch und schüchtern gegenüber anderen Tieren.</p>
+            <button onclick="window.print()">Drucken</button>
+        </div>
+        <a href="index.html">Zurück zur Startseite</a>
+    </div>
+    <footer>
+        <p>&copy; 2024 Vermisste Katzen. Alle Rechte vorbehalten.</p>
+    </footer>
+</body>
+</html>

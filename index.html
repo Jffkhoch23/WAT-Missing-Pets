@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missing Pets</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            position: relative;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #ff6666;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        .cat-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 10px 0;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .cat-card:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            cursor: pointer;
+        }
+        .cat-card img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .cat-card h2 {
+            margin: 10px 0;
+        }
+        .cat-card p {
+            margin: 5px 0;
+        }
+        .contact-box {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .contact-box h2 {
+            color: #ff6666;
+        }
+        .contact-box p {
+            margin: 10px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #ff6666;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        #add-pet-btn, #admin-btn, #login-btn {
+            margin: 10px;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        #add-pet-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #admin-btn {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            background-color: #333;
+            color: white;
+        }
+        #login-btn {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: #007BFF;
+            color: white;
+        }
+        .delete-btn {
+            display: none;
+            background-color: #FF0000;
+            color: white;
+            padding: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            z-index: 9999;
+        }
+        #cookie-banner button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9998;
+            display: none;
+        }
+        #add-pet-form {
+            display: none;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        #add-pet-form input, #add-pet-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        #login-form {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: none;
+            z-index: 10000;
+        }
+        #login-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Missing Pets</h1>
+    </header>
+
+    <button id="login-btn">Anmelden</button>
+    <button id="add-pet-btn">Hinzufügen</button>
+    <button id="admin-btn">Admin</button>
+
+    <div class="container">
+        <div id="pet-list">
+            <a href="molly-details.html" target="_blank" class="cat-card">
+                <img src="katze1.jpg" alt="Bild der vermissten Katze">
+                <h2>Molly</h2>
+                <p><strong>Vermisst seit:</strong> 01. Juni 2024</p>
+                <p><strong>Ort:</strong> Berlin</p>
+                <p><strong>Beschreibung:</strong> Molly ist eine schwarz-weiße Katze, sehr zutraulich und trägt ein rotes Halsband.</p>
+            </a>
+            <a href="whiskers-details.html" target="_blank" class="cat-card">
+                <img src="katze2.jpg" alt="Bild der vermissten Katze">
+                <h2>Whiskers</h2>
+                <p><strong>Vermisst seit:</strong> 05. Juni 2024</p>
+                <p><strong>Ort:</strong> München</p>
+                <p><strong>Beschreibung:</strong> Whiskers ist eine graue Katze mit grünen Augen, etwas scheu und ohne Halsband.</p>
+            </a>
+        </div>
+
+        <!-- Kontaktbox -->
+        <div class="contact-box">
+            <h2>Fragen? Kontaktieren Sie uns!</h2>
+            <p><strong>Telefon:</strong> +49 12345678910</p>
+            <p><strong>Email:</strong> <a href="mailto:missingpets.vermistekatzen@gmail.com">missingpets.vermistekatzen@gmail.com</a></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Missing Pets. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <div id="cookie-banner">
+        <p>Diese Website verwendet Cookies. Bitte akzeptieren Sie die Cookies, um fortzufahren.</p>
+        <button onclick="acceptCookies()">Akzeptieren</button>
+    </div>
+
+    <div id="overlay"></div>
+
+    <div id="login-form">
+        <h2>Bitte melden Sie sich an</h2>
+        <input type="email" id="email" placeholder="E-Mail" required>
+        <input type="password" id="password" placeholder="Passwort" required>
+        <button onclick="submitLogin()">Fertig</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        const petList = document.getElementById('pet-list');
+        const addPetBtn = document.getElementById('add-pet-btn');
+        const adminBtn = document.getElementById('admin-btn');
+        const loginBtn = document.getElementById('login-btn');
+        const loginForm = document.getElementById('login-form');
+        let adminMode = false;
+
+        // Login Button
+        loginBtn.addEventListener('click', () => {
+            loginForm.style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        });
+
+        function submitLogin() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (email && password) {
+                const userId = Date.now(); // Generate a unique user ID based on current time
+                alert(`Willkommen! Ihre Benutzer-ID ist: ${userId}`);
+
+                // Send email to missingpets.vermistekatzen@gmail.com
+                window.location.href = `mailto:missingpets.vermistekatzen@gmail.com?subject=Benutzeranmeldung&body=Benutzer-ID: ${userId}, E-Mail: ${email}`;
+
+                loginForm.style.display = 'none';
+                document.getElementById('overlay').style.display = 'none';
+            } else {
+                alert('Bitte füllen Sie alle Felder aus.');
+            }
+        }
+
+        // Add Pet Button
+        addPetBtn.addEventListener('click', () => {
+            const formHtml = `
+                <div id="add-pet-form">
+                    <label>Name des vermissten Tieres:</label><br>
+                    <input type="text" id="pet-name"><br><br>
+                    <label>Vermisst seit:</label><br>
+                    <input type="date" id="pet-missing-since"><br><br>
+                    <label>Ort:</label><br>
+                    <input type="text" id="pet-location"><br><br>
+                    <label>Beschreibung:</label><br>
+                    <textarea id="pet-description"></textarea><br><br>
+                    <label>Bild auswählen:</label><br>
+                    <input type="file" id="pet-image" accept="image/*"><br><br>
+                    <button onclick="submitPet()">Speichern</button>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', formHtml);
+            document.getElementById('add-pet-form').style.display = 'block';
+        });
+
+        function submitPet() {
+            const name = document.getElementById('pet-name').value;
+            const missingSince = document.getElementById('pet-missing-since').value;
+            const location = document.getElementById('pet-location').value;
+            const description = document.getElementById('pet-description').value;
+            const imageFile = document.getElementById('pet-image').files[0];
+
+            if (name && missingSince && location && description && imageFile) {
+                const petEntry = document.createElement('div');
+                petEntry.className = 'cat-card';
+
+                const imageUrl = URL.createObjectURL(imageFile); // Temporäre URL für das Bild
+
+                petEntry.innerHTML = `
+                    <h3>${name}</h3>
+                    <p><strong>Vermisst seit:</strong> ${missingSince}</p>
+                    <p><strong>Ort:</strong> ${location}</p>
+                    <p><strong>Beschreibung:</strong> ${description}</p>
+                    <img src="${imageUrl}" alt="${name}" style="max-width: 200px;">
+                    <button class="delete-btn">Löschen</button>
+                `;
+                petList.appendChild(petEntry);
+
+                petEntry.querySelector('.delete-btn').addEventListener('click', () => {
+                    petList.removeChild(petEntry);
+                });
+
+                document.getElementById('add-pet-form').remove();
+            } else {
+                alert('Bitte füllen Sie alle Felder aus und wählen Sie ein Bild.');
+            }
+        }
+
+        // Admin Button
+        adminBtn.addEventListener('click', () => {
+            const password = prompt('Bitte geben Sie das Admin-Passwort ein:');
+            if (password === 'admin123') {
+                adminMode = true;
+                document.querySelectorAll('.delete-btn').forEach(btn => btn.style.display = 'inline');
+                alert('Admin-Modus aktiviert');
+            } else {
+                alert('Falsches Passwort');
+            }
+        });
+
+        // Cookies Banner
+        function acceptCookies() {
+            document.getElementById('cookie-banner').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        // Show Overlay
+        window.onload = function() {
+            document.getElementById('overlay').style.display = 'block';
+        };
+    </script>
+</body>
+</html>
